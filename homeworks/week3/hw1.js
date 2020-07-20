@@ -1,9 +1,6 @@
 const readline = require('readline');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-});
-
+const rl = readline.createInterface({ input: process.stdin });
 const lines = [];
 
 rl.on('line', (line) => {
@@ -20,6 +17,4 @@ function solve(input) {
   }
 }
 
-rl.on('close', () => {
-  solve(lines);
-});
+rl.on('close', () => solve(lines));

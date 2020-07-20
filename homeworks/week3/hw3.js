@@ -1,37 +1,28 @@
 const readline = require('readline');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-});
-
+const rl = readline.createInterface({ input: process.stdin });
 const lines = [];
 
 rl.on('line', (line) => {
   lines.push(line);
 });
 
-function solve(arr) {
-  const numberArr = arr.slice(1);
-
-  function isPrime(n) {
-    if (n === 1) return false;
-    for (let i = 2; i < n; i += 1) {
-      if (n % i === 0) {
-        return false;
-      }
-    }
-    return true;
+function isPrimeNumber(n) {
+  if (n === 1) {
+    return false;
   }
-
-  numberArr.forEach((el) => {
-    if (isPrime(Number(el))) {
-      console.log('Prime');
-    } else {
-      console.log('Composite');
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) {
+      return false;
     }
-  });
+  }
+  return true;
 }
 
-rl.on('close', () => {
-  solve(lines);
-});
+function solve(input) {
+  for (let i = 1; i < input.length; i += 1) {
+    console.log(isPrimeNumber(Number(input[i])) ? 'Prime' : 'Composite');
+  }
+}
+
+rl.on('close', () => solve(lines));

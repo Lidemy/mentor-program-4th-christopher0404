@@ -3,6 +3,10 @@ const readline = require('readline');
 const rl = readline.createInterface({ input: process.stdin });
 const lines = [];
 
+rl.on('line', (line) => {
+  lines.push(line);
+});
+
 function isNarcissisticNumber(num) {
   const str = num.toString();
   const digits = str.length;
@@ -26,7 +30,4 @@ function solve(input) {
   }
 }
 
-rl.on('line', (line) => {
-  lines.push(line);
-});
 rl.on('close', () => solve(lines));
