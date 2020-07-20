@@ -10,8 +10,8 @@ rl.on('line', (line) => {
   lines.push(line);
 });
 
-function solve(arr) {
-  for (let i = 1; i <= arr[0]; i += 1) {
+function solve(input) {
+  for (let i = 1; i <= input[0]; i += 1) {
     let stars = '';
     for (let j = 0; j < i; j += 1) {
       stars += '*';

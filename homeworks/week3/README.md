@@ -2,7 +2,7 @@
 
 在交這週的作業以前，請務必確認每一題都已經通過 [Lidemy OJ](https://oj.lidemy.com/) 的測試並拿到 AC。
 
-## hw1：好多星星  
+## hw1：好多星星
 
 [LIOJ1021 - 好多星星](https://oj.lidemy.com/problem/1021)
 
