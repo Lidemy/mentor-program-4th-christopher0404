@@ -30,4 +30,10 @@ function solve(input) {
 
 ## hw4：判斷迴文
 
+[LIOJ-1030 | Submission Details](https://oj.lidemy.com/status/972740d35894df3c668c5509b768e556)
+
+之前在 Codewars 寫過類似的題目，所以我覺得比前兩題簡單許多。
+
+[Kata Stats: Reversed Strings | Codewars](https://www.codewars.com/kata/reversed-strings/javascript)
+
 ## hw5：聯誼順序比大小
