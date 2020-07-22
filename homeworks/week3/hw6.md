@@ -37,3 +37,33 @@ function solve(input) {
 [Kata Stats: Reversed Strings | Codewars](https://www.codewars.com/kata/reversed-strings/javascript)
 
 ## hw5：聯誼順序比大小
+
+[LIOJ-1004 | Submission Details](https://oj.lidemy.com/status/ca14889b203cf321efa4267795052338)
+
+測試了幾次都沒通過，才發現題目有提到（到底是誰會選這麼大的數字啦⋯⋯）
+
+> 要特別注意的是 A 與 B 可能是很大的數字，但保證長度為 512 個位數以內
+
+Google 之後得知，在 JavaScript 中有所謂的最大安全整數（maximum safe integer)（2<sup>53</sup> - 1）
+
+``` js
+console.log(Number.MAX_SAFE_INTEGER);
+// expected output: 9007199254740991
+```
+
+大於 2<sup>53</sup> - 1 的數可以用 `BigInt` 表示
+
+``` js
+const previousMaxSafe = BigInt(Number.MAX_SAFE_INTEGER) 
+// ↪ 9007199254740991n
+```
+
+於是將變數加上 `BigInt()` 就拿到 AC 了（灑花～～～）
+
+但是 `git commit` 之後 ESLint 會出現錯誤訊息
+
+``` bash
+error  'BigInt' is not defined  no-undef
+```
+
+只好加上註解 `/* eslint-disable no-undef */` 強行通過 (?)
