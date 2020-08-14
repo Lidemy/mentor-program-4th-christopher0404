@@ -1,0 +1,107 @@
+.banner {
+    @include flex(center, center);
+    height: 36rem;
+    background-image: url(images/banner.jpg);
+    background-color: rgba(0, 0, 0, .25);
+    background-blend-mode: multiply;
+}
+
+.order {
+    margin-bottom: 6.5rem;
+
+    @include responsive(phone) {
+        margin-bottom: 3rem;
+    }
+
+    &__description {
+        margin-bottom: 3.5rem;
+
+        @include responsive(phone) {
+            margin-bottom: 2.5rem;
+        }
+    }
+
+    &__button {
+        &-container {
+            @include flex(center, center);
+            @include responsive(phone) {
+                flex-direction: column;
+            }
+        }
+
+        &-1,
+        &-2 {
+            padding: 3rem 4rem;
+            border-radius: .5rem;
+            margin: 1rem;
+            color: $primary-dark;
+
+            &:hover {
+                filter: brightness(90%);
+            }
+        }
+
+        &-1 {
+            background-color: #a8e8e1;
+        }
+
+        &-2 {
+            background-color: #f9f9b5;
+        }
+    }
+}
+
+.menu {
+    &__pictures {
+        display: flex;
+        flex-wrap: wrap;
+
+        img {
+            width: 25%;
+
+            @include responsive(tablet) {
+                width: 50%;
+            }
+        }
+    }
+}
+
+.comments {
+    &__list {
+        display: flex;
+
+        @include responsive(tablet) {
+            flex-direction: column;
+            margin-top: -3.5rem;
+        }
+    }
+
+    &__item {
+        width: 1 / 3 * 100%;
+        padding: 1.5rem;
+        border: 1px solid #c7e5ec;
+        border-radius: .25rem;
+        margin: 1rem .5rem 0;
+        box-shadow: -1.4px -1.4px 4px 0 #d8eaef;
+
+        @include responsive(tablet) {
+            width: 100%;
+            margin: 4.5rem auto 0;
+        }
+    }
+
+    &__avatar {
+        width: 6.5rem;
+        border: 2px solid #ccc;
+        border-radius: 50%;
+        margin: -5rem auto .25rem;
+    }
+}
+
+.location {
+    &__map {
+        width: 100%;
+        height: 28rem;
+        border: none;
+    }
+}
