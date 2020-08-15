@@ -1,0 +1,60 @@
+.form {
+    max-width: 40rem;
+    padding: 3rem 2.5rem;
+    border-top: .5rem solid $primary;
+    margin: 7.5rem auto 4rem;
+    box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+
+    @include responsive(phone) {
+        margin: 0;
+    }
+
+    &__group {
+        margin-bottom: 3rem;
+    }
+
+    &__label {
+        display: block;
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+
+        &.required {
+            &::after {
+                content: "*";
+                margin-left: .25rem;
+                color: $red;
+            }
+        }
+    }
+
+    &__input {
+        padding: .25rem;
+        border: 1px solid #d0d0d0;
+        font-size: 1rem;
+
+        &::placeholder {
+            color: #afafaf;
+        }
+    }
+}
+
+.btn {
+    padding: .75rem 2rem;
+    border: none;
+    border-radius: .25rem;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(90%);
+    }
+
+    &--submit {
+        background-color: $primary;
+    }
+}
+
+.footer {
+    padding: 1.5rem;
+    border-top: 3px solid $primary;
+    color: #999;
+}

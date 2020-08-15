@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新拖延運動報名表單</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body class="bg--secondary">
+  <form class="form bg--white">
+    <h1 class="h1 mb-4">新拖延運動報名表單</h1>
+    <p class="font--sm mb-1">活動日期：2020/12/10 ~ 2020/12/11</p>
+    <p class="font--sm mb-3">活動地點：台北市大安區新生南路二段1號</p>
+    <p class="text--warning mb-5">* 必填</p>
+
+    <div class="form__group">
+      <label for="nickname" class="form__label required mb-3">暱稱</label>
+      <input type="text" id="nickname" name="nickname" class="form__input" placeholder="您的回答" required>
+    </div>
+
+    <div class="form__group">
+      <label for="email" class="form__label required mb-3">電子郵件</label>
+      <input type="email" id="email" name="email" class="form__input" placeholder="您的電子郵件" required>
+    </div>
+
+    <div class="form__group">
+      <p class="form__label required mb-3">報名類型</p>
+      <div class="mb-2">
+        <input type="radio" id="applyTypeOne" name="applyTypes" value="applyTypeOne">
+        <label for="applyTypeOne" class="font--sm">躺在床上用想像力實作</label>
+      </div>
+      <div>
+        <input type="radio" id="applyTypeTwo" name="applyTypes" value="applyTypeTwo">
+        <label for="applyTypeTwo" class="font--sm">趴在地上滑手機找現成的</label>
+      </div>
+    </div>
+
+    <div class="form__group">
+      <label for="phoneNumber" class="form__label required mb-3">手機號碼</label>
+      <input type="tel" inputmode="tel" id="phoneNumber" name="phoneNumber" class="form__input" placeholder="您的手機號碼" required>
+    </div>
+
+    <div class="form__group">
+      <label for="howDidYouKnow" class="form__label required mb-3">怎麼知道這個活動的？</label>
+      <input type="text" id="howDidYouKnow" name="howDidYouKnow" class="form__input" placeholder="您的回答" required>
+    </div>
+
+    <div class="form__group">
+      <label for="otherSuggestions" class="form__label mb-1">其他</label>
+      <p class="font--sm mb-3">對活動的一些建議</p>
+      <input type="text" id="otherSuggestions" name="otherSuggestions" class="form__input" placeholder="您的回答">
+    </div>
+
+    <input type="submit" value="提交" class="btn btn--submit mb-3">
+    <p class="font--sm">請勿透過表單送出您的密碼。</p>
+  </form>
+
+  <footer class="footer bg--black text--center font--sm">
+    <p>© 2020 © Copyright. All rights Reserved.</p>
+  </footer>
+</body>
+</html>

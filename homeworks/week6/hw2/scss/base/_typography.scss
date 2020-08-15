@@ -1,5 +1,5 @@
 body {
-    font-family: Questrial, MicrosoftJhengHei, sans-serif;
+    font-family: MicrosoftJhengHei, sans-serif;
     line-height: 1.5;
 }
 
@@ -10,45 +10,41 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .h1 {
-    font-size: $font-size-base * 3.75;
-}
-
-.h2 {
     font-size: $font-size-base * 2.25;
 }
 
 .font {
-    &-xs {
+    &--xs {
         font-size: .75rem;
     }
 
-    &-sm {
+    &--sm {
         font-size: .875rem;
     }
 
-    &-base {
+    &--base {
         font-size: 1rem;
     }
 
-    &-regular {
+    &--regular {
         font-size: 1.125rem;
     }
 
-    &-md {
+    &--md {
         font-size: 1.25rem;
     }
 }
 
 .text {
-    &-primary {
-        color: $primary;
-    }
-
-    &-white {
+    &--white {
         color: $white;
     }
 
-    &-center {
+    &--warning {
+        color: $red;
+    }
+
+    &--center {
         text-align: center;
     }
 }
