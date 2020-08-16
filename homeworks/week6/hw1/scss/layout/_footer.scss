@@ -1,0 +1,27 @@
+.footer {
+    &__info {
+        padding: 2.5rem 0;
+        background-color: #e8efee;
+
+        .container {
+            @include flex(space-between, flex-start);
+            @include responsive(tablet) {
+                flex-direction: column-reverse;
+            }
+        }
+    }
+
+    &__social {
+        text-align: right;
+
+        @include responsive(tablet) {
+            margin-bottom: 1rem;
+            text-align-last: left;
+        }
+    }
+
+    &__copyright {
+        padding: 1rem 0;
+        background-color: $primary-dark;
+    }
+}
