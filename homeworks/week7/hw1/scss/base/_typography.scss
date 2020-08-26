@@ -1,0 +1,50 @@
+body {
+    font-family: MicrosoftJhengHei, sans-serif;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    margin: 0;
+    line-height: 1.25;
+}
+
+.h1 {
+    font-size: $font-size-base * 2.25;
+}
+
+.font {
+    &--xs {
+        font-size: .75rem;
+    }
+
+    &--sm {
+        font-size: .875rem;
+    }
+
+    &--base {
+        font-size: 1rem;
+    }
+
+    &--regular {
+        font-size: 1.125rem;
+    }
+
+    &--md {
+        font-size: 1.25rem;
+    }
+}
+
+.text {
+    &--white {
+        color: $white;
+    }
+
+    &--warning {
+        color: $red;
+    }
+
+    &--center {
+        text-align: center;
+    }
+}
