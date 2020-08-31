@@ -1,0 +1,94 @@
+.header {
+  @include flex(null, center);
+  position: sticky;
+  top: 0;
+  padding: 1.25rem 2rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .9),
+              0 0 2px rgba(0, 0, 0, .9);
+  z-index: 160;
+
+  @include responsive(phone) {
+    @include flex(null, flex-start, column);
+    padding: 1.5rem 1rem;
+  }
+
+  &__logo {
+    flex-shrink: 0;
+    max-width: 7rem;
+
+    @include responsive(phone) {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.nav {
+  position: relative;
+  margin-right: 2rem;
+  margin-left: auto;
+
+  @include responsive(phone) {
+    margin: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: .625rem;
+    right: 1rem;
+    width: .75rem;
+    height: .75rem;
+    border-right: 2px solid $grey-light-02;
+    border-bottom: 2px solid $grey-light-02;
+    transform: rotate(45deg);
+    transform-origin: 50% 50%;
+  }
+
+  &__select {
+      appearance: none;
+      background: none;
+      position: relative;
+      padding: .5rem 3rem .5rem 1rem;
+      border: 1px solid $grey-light-04;
+      border-radius: .25rem;
+      color: $grey-light-02;
+      font-size: 1.125rem;
+      font-weight: 700;
+      cursor: pointer;
+
+      @include responsive(phone) {
+        font-size: .875rem;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: $grey-dark-01;
+      }
+  }
+}
+
+.theme-toggler {
+  flex-shrink: 0;
+  max-width: 2rem;
+  cursor: pointer;
+
+  @include responsive(phone) {
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+  }
+
+  path {
+    &:first-of-type {
+      fill: transparent;
+
+      &:hover {
+        fill: $twitch-purple;
+      }
+    }
+
+    &:last-of-type {
+      fill: $grey-light-02;
+    }
+  }
+}

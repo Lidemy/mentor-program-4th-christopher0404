@@ -1,0 +1,23 @@
+@font-face {
+  font-family: Roobert;
+  src: url('../fonts/Roobert-Regular.otf'),
+       url('../fonts/Roobert-Medium.otf'),
+       url('../fonts/Roobert-SemiBold.otf'),
+       url('../fonts/Roobert-Bold.otf');
+}
+
+::selection {
+  background-color: $twitch-purple;
+  color: $grey-light-01;
+}
+
+body {
+  font-family: Roobert, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 0;
+  line-height: 1.25;
+}

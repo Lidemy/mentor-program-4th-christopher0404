@@ -1,0 +1,71 @@
+.theme {
+  &--dark {
+    background-color: $grey-dark-01;
+    color: $grey-light-02;
+  }
+
+  &--light {
+    background-color: $grey-light-02;
+    color: $grey-dark-02;
+
+    .header {
+      background-color: $grey-light-01;
+      color: $grey-dark-02;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .15),
+                  0 0 2px rgba(0, 0, 0, .1);
+    }
+
+    .nav {
+      &::after {
+        border-color: $grey-dark-02;
+      }
+
+      &__select {
+        color: $grey-dark-02;
+
+        &:hover,
+        &:focus {
+          background-color: $grey-light-02;
+        }
+      }
+    }
+
+    .theme-toggler {
+      path {
+        &:first-of-type {
+          fill: $twitch-purple;
+
+          &:hover {
+            fill: transparent;
+          }
+        }
+
+        &:last-of-type {
+          fill: $grey-dark-03;
+        }
+      }
+    }
+
+    .media {
+      &__subtitle {
+        color: $grey-light-05;
+      }
+
+      &__button {
+        background: $grey-light-03;
+        color: $grey-dark-02;
+        border-color: $grey-dark-02;
+      }
+    }
+
+    .stream {
+      &__channel {
+        color: $grey-light-05;
+      }
+
+      &__viewers {
+        color: $ice;
+      }
+    }
+  }
+}
