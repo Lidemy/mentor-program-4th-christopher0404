@@ -1,0 +1,35 @@
+.btn {
+  appearance: none;
+  background: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: .75rem 1.5rem;
+  border: none;
+  border-radius: 32rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+
+  &-primary {
+    background-color: $primary;
+    color: #fff;
+
+    &:focus,
+    &:hover {
+      background-color: darken($primary, 8%);
+    }
+  }
+
+  &--disabled {
+    background-color: #bbb;
+    color: #fff;
+    cursor: not-allowed;
+  }
+}
+
+.error-message {
+  color: #a92020;
+  text-align: right;
+  font-size: .875rem;
+}
