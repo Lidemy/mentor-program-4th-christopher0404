@@ -1,0 +1,97 @@
+.form {
+  @include flex(null, null, column);
+  background-color: $base-bg;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .125);
+
+  @include responsive(phone) {
+    padding: 2rem 1.25rem;
+  }
+
+  &__group {
+    margin-bottom: 1.5rem;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: .25rem;
+    font-size: 1.25rem;
+  }
+
+  &__input {
+    background: none;
+    width: 100%;
+    padding: .75rem 1rem;
+    border: 1px solid $border-color;
+    border-radius: .5rem;
+    font-size: 1rem;
+  }
+
+  &__textarea {
+    resize: none;
+    background: none;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  &__footer {
+    @include flex(null, center);
+    padding-top: 1rem;
+    border-top: 1px solid $border-color;
+
+    &:focus-within {
+      .btn[form="updateUser"] {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    .btn[form="updateUser"] {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .5s ease;
+    }
+  }
+
+  &__nickname {
+    flex-grow: 1;
+    border: none;
+  }
+}
+
+.select {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: .8rem;
+    right: .75rem;
+    width: .5rem;
+    height: .5rem;
+    border-right: 2px solid $border-color;
+    border-bottom: 2px solid $border-color;
+    transform: rotate(45deg);
+    transform-origin: 50% 50%;
+  }
+
+  select {
+    appearance: none;
+    background: none;
+    padding: .5rem 2rem .5rem .75rem;
+    border: 1px solid $border-color;
+    border-radius: .25rem;
+    font-size: 1rem;
+    transition: all .25s ease;
+    cursor: pointer;
+
+    &:hover {
+      background: $main-bg;
+    }
+  }
+}

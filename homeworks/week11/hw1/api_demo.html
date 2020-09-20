@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christopher's Message Board</title>
+  <link rel="stylesheet" href="style/main.css">
+  <script src="js/api_demo.js" defer></script>
+</head>
+
+<body class="body">
+  <nav class="nav">
+    <ul class="nav__list">
+      <li class="nav__item">
+        <a href="index.php" class="nav__link">Home</a>
+      </li>
+        <li class="nav__item">
+          <a href="register.php" class="nav__link">Sign Up</a>
+        </li>
+        <li class="nav__item">
+          <a href="login.php" class="nav__link">Log In</a>
+        </li>
+    </ul>
+  </nav>
+
+  <main class="main">
+    <form id="addComment" action="handle_add_comment.php" method="POST" class="form">
+      <textarea name="content" form="addComment" rows="2" maxlength="256" placeholder="Type something here" class="form__textarea"></textarea>
+      <div class="form__footer">
+        <input type="text" name="nickname" maxlength="32" class="form__input form__nickname" disabled>
+        <button type="submit" form="addComment" class="btn btn-primary">Send</button>
+      </div>
+    </form>
+
+    <section class="messages"></section>
+  </main>
+</body>
+</html>
