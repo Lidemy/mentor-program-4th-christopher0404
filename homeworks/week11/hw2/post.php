@@ -23,7 +23,7 @@
 <html lang="en">
 <head>
   <?php include_once('./templates/head.php'); ?>
-  <title><?php echo escape($row['title']); ?> - Christopher's Blog</title>
+  <title><?php echo escape($row['title']); ?> | Christopher's Blog</title>
 </head>
 
 <body class="body single-post">

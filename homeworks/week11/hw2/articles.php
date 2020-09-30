@@ -19,7 +19,7 @@
 <html lang="en">
 <head>
   <?php include_once('./templates/head.php'); ?>
-  <title>Articles - Christopher's Blog</title>
+  <title>Articles | Christopher's Blog</title>
 </head>
 
 <body class="body">

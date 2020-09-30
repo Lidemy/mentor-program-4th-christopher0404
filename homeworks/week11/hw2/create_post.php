@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
   <?php include_once('./templates/head.php'); ?>
-  <title>Editing...</title>
+  <title>Editing | Christopher's Blog</title>
 </head>
 
 <body class="body">

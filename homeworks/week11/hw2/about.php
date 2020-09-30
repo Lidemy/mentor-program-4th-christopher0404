@@ -1,12 +1,14 @@
 <?php
   session_start();
+  require_once('conn.php');
+  require_once('utils.php');
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <?php include_once('./templates/head.php'); ?>
-  <title>About - Christopher's Blog</title>
+  <title>About | Christopher's Blog</title>
 </head>
 
 <body class="body">

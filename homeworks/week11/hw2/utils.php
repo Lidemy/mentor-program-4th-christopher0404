@@ -14,4 +14,8 @@
     $row = $result->fetch_assoc();
     return $row;
   }
+
+  function isAdmin($user) {
+    return $user['role'] === 'admin';
+  }
 ?>

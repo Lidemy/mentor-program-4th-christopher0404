@@ -15,7 +15,7 @@
       <a href="about.php" class="nav__link hover--underline">About</a>
     </li>
 
-  <?php if (isset($_SESSION['username'])) { ?>
+  <?php if (isAdmin(getUserFromUsername($_SESSION['username']))) { ?>
     <li class="nav__item">
       <div class="nav__avatar">
         <a href="#" role="button" class="">

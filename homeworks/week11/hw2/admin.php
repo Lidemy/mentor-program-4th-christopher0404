@@ -20,7 +20,7 @@
 <html lang="en">
 <head>
   <?php include_once('./templates/head.php'); ?>
-  <title>My Posts - Christopher's Blog</title>
+  <title>My Posts | Christopher's Blog</title>
 </head>
 
 <body class="body admin">
