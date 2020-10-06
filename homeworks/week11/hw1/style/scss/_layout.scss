@@ -1,0 +1,211 @@
+.body {
+  background-color: $main-bg;
+}
+
+.nav {
+  padding: 1.5rem 2rem;
+  margin-bottom: 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+
+  @include responsive(phone) {
+    padding: 1.25rem 1rem;
+    font-size: 1rem;
+  }
+
+  &__list {
+    @include flex(null, center);
+    flex-wrap: wrap;
+    margin: 0 -0.5rem;
+  }
+
+  &__item {
+    margin: 0 .5rem;
+
+    @include responsive(phone) {
+      margin: 0 .5rem 1rem;
+    }
+
+    &:first-of-type {
+      flex-grow: 1;
+    }
+  }
+
+  &__username {
+    @include responsive(phone) {
+      order: 3;
+      margin-right: 1rem;
+      margin-left: auto;
+    }
+  }
+
+  &__link {
+    position: relative;
+    padding: .25rem .5rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #000;
+        transform: scale3d(0, 1, 1);
+        transition: transform .25s ease-in-out;
+    }
+
+    &:hover::after {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+}
+
+.main {
+  max-width: 40rem;
+  margin: 0 auto 5rem;
+}
+
+.messages {
+  background-color: $base-bg;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .125);
+
+  @include responsive(phone) {
+    padding: .75rem 1.25rem;
+  }
+}
+
+.message {
+  display: flex;
+  padding: 1rem 0;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid $border-color;
+  }
+
+  &__avatar {
+    flex-shrink: 0;
+    background: $primary;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 32rem;
+    overflow: hidden;
+  }
+
+  &__body {
+    position: relative;
+    flex-grow: 1;
+    margin-left: 1rem;
+  }
+
+  &__info {
+    padding-right: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__author {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.25;
+    word-break: break-all;
+  }
+
+  &__time {
+    color: $grey-01;
+    font-size: .75rem;
+  }
+
+  &__content {
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  &__operation {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    column-gap: .5rem;
+
+    @include responsive(phone) {
+      top: -0.125rem;
+      flex-direction: column;
+    }
+
+    .icon {
+      padding: .25rem;
+      color: $grey-02;
+
+      &:focus,
+      &:hover {
+        color: #000;
+      }
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+}
+
+.pagination {
+  @include responsive(phone) {
+    padding: 0 .5rem;
+  }
+
+  &__info {
+    @include flex(space-between);
+    padding: 0 .125rem;
+    margin-bottom: 1rem;
+    color: $grey-01;
+  }
+}
+
+.page {
+  @include flex(flex-end);
+  flex-wrap: wrap;
+
+  &__item {
+    border: 1px solid $border-color;
+    border-radius: 32rem;
+    margin: 0 .125rem;
+    color: $grey-01;
+    transition: .2s all ease-in-out;
+
+    &:not(&--disabled):hover {
+      background: $primary;
+      color: #fff;
+    }
+
+    &--active {
+      background: $primary;
+      color: #fff;
+    }
+
+    &--disabled {
+      border-color: $grey-03;
+      color: $grey-03;
+      cursor: not-allowed;
+    }
+  }
+
+  &__link {
+    @include flex(center, center);
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+.role-management {
+  padding: 0 2rem;
+  margin: 0 auto 5rem;
+  overflow-x: auto;
+
+  @include responsive(phone) {
+    padding: 0 1rem;
+  }
+}

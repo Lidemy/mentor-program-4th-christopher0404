@@ -1,0 +1,43 @@
+.table {
+  border-collapse: collapse;
+  margin: 0 auto;
+
+  thead th {
+    border-bottom: 2px solid $primary;
+    font-size: 1.25rem;
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: $base-bg;
+      }
+    }
+
+    th, td {
+      border-bottom: 1px solid $border-color;
+    }
+  }
+
+  th, td {
+    padding: 1rem;
+    text-align-last: left;
+  }
+
+  &__form {
+    @include flex(null, center);
+    column-gap: 1rem;
+
+    .btn {
+      padding: .375rem .75rem;
+      border: 1px solid $border-color;
+      transition: all .25s ease;
+
+      &:focus,
+      &:hover {
+        background: $primary;
+        color: #fff;
+      }
+    }
+  }
+}

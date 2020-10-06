@@ -1,0 +1,39 @@
+.form {
+  @include flex(null, null, column);
+  max-width: 32rem;
+  padding-top: 2.5rem;
+  margin: 0 auto;
+
+  &__group {
+    margin-bottom: 1.5rem;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: .25rem;
+    font-size: 1.25rem;
+  }
+
+  &__input {
+    width: 100%;
+    padding: .75rem 1rem;
+    border: $border;
+    border-radius: .5rem;
+    font-size: 1rem;
+    letter-spacing: .125rem;
+  }
+
+  &__textarea {
+    resize: none;
+    background: none;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  &__submit {
+    padding: 1rem 0;
+  }
+}
