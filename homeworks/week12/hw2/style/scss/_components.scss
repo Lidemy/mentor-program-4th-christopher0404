@@ -1,0 +1,40 @@
+.btn {
+  appearance: none;
+  background: none;
+  border: 0;
+  border-radius: $radius-xl;
+  padding: .75rem 1rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  transition: all .4s ease-in-out;
+
+  &-primary {
+    border: 1px solid $primary;
+    color: $primary;
+
+    &:focus,
+    &:hover {
+      background-color: $primary;
+      color: $white;
+      outline: none;
+    }
+  }
+
+  &-danger {
+    border: 1px solid $red;
+    color: $red;
+
+    &:focus,
+    &:hover {
+      background-color: $red;
+      color: $white;
+      outline: none;
+    }
+  }
+}
+
+.border {
+  &-primary {
+    border: 1px solid $primary;
+  }
+}
