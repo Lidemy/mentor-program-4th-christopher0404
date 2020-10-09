@@ -1,7 +1,5 @@
 .btn {
-  appearance: none;
-  background: none;
-  border: 0;
+  @include resetAppearance;
   border-radius: $radius-xl;
   padding: .75rem 1rem;
   font-size: 1rem;
@@ -30,11 +28,5 @@
       color: $white;
       outline: none;
     }
-  }
-}
-
-.border {
-  &-primary {
-    border: 1px solid $primary;
   }
 }

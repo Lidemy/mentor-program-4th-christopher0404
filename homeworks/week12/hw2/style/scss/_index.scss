@@ -1,11 +1,12 @@
 .body {
-  @include flex(center, center);
+  padding: 8rem 0;
   background-color: $white;
   color: $primary;
 
-  @media (min-width: 48em) {
-    display: block;
-    padding: 8rem 0;
+  @include responsive('phone') {
+    display: grid;
+    place-items: center;
+    padding: 0;
   }
 }
 
@@ -16,6 +17,10 @@
   margin: 0 auto;
   box-shadow: 0 0 2rem rgba($primary, .25);
   transition: all .4s ease-in-out;
+
+  @include responsive('phone') {
+    padding: 2.25rem 1.5rem 1.5rem;
+  }
 
   &:focus-within {
     box-shadow: 0 0 1rem rgba($primary, .25);
@@ -29,9 +34,7 @@
   margin-bottom: 1rem;
 
   &__input {
-    appearance: none;
-    background: none;
-    background-clip: padding-box;
+    @include resetAppearance;
     flex-grow: 1;
     padding: .75rem 1rem;
     border: 1px solid rgba($primary, .25);
@@ -54,7 +57,7 @@
 }
 
 .todo {
-  @include flex(null, baseline);
+  @include flex(null, center);
   margin: .25rem 0;
 
   &-list {
@@ -64,20 +67,20 @@
   }
 
   &--completed {
-    .todo__title {
+    .todo__name {
       color: rgba($primary, .5);
       text-decoration: line-through;
     }
   }
 
   &__item {
-    @include flex(null, baseline);
+    @include flex(null, center);
+    flex-grow: 1;
     padding: .5rem .75rem;
     border-radius: $radius-xs;
-    margin-right: auto;
     transition: all .4s ease-in-out;
-    // cursor: pointer;
 
+    &:focus-within,
     &:hover {
       background-color: rgba($primary, .05);
     }
@@ -89,15 +92,17 @@
     height: 1.25rem;
     border-radius: $radius-xxs;
     margin-right: .5rem;
-    transform: translateY(2px);
     cursor: pointer;
   }
 
   &__name {
+    @include resetAppearance;
+    flex-grow: 1;
     font-size: 1.25rem;
-    letter-spacing: 1px;
-    overflow-wrap: anywhere;
-    word-break: break-word;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__delete {
@@ -108,14 +113,19 @@
   }
 }
 
-.todos{
-  &-filter {
-    @include flex(space-between, center);
-    margin-bottom: 2rem;
-  }
+.todos-list {
+  max-height: 20rem;
+  margin-bottom: 1.5rem;
+  overflow: auto;
+}
 
-  &-operation {
+.todos-operations{
+  &__item {
     @include flex(space-between, center);
+
+    &:first-of-type {
+      margin-bottom: 2rem;
+    }
   }
 }
 
@@ -137,8 +147,7 @@
   }
 
   select {
-    appearance: none;
-    background: none;
+    @include resetAppearance;
     padding: .5rem 2rem .5rem .75rem;
     border: 1px solid $primary;
     border-radius: $radius-xxs;

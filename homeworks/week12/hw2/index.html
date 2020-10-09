@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo List (jQuery)</title>
+  <title>Todo List</title>
 
   <link rel="stylesheet" href="style/main.min.css">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -17,25 +17,30 @@
       <button type="button" class="form__submit btn btn-primary">Add</button>
     </form>
 
-    <ul class="todo-list"></ul>
+    <ul class="todos-list"></ul>
 
-    <div class="todos-filter">
-      <p>
-        <span id="uncompleted-todos">0</span> uncompleted
-      </p>
+    <div class="todos-operations">
+      <div class="todos-operations__item">
+        <p>
+          <span id="completed-todos">0</span>
+          /
+          <span id="all-todos">0</span>
+          completed
+        </p>
 
-      <div class="select">
-        <select id="select-todos">
-          <option value="all" selected>all</option>
-          <option value="completed">completed</option>
-          <option value="uncompleted">uncompleted</option>
-        </select>
+        <div class="select">
+          <select id="select-todos">
+            <option value="all" selected>all</option>
+            <option value="completed">completed</option>
+            <option value="uncompleted">uncompleted</option>
+          </select>
+        </div>
       </div>
-    </div>
 
-    <div class="todos-operation">
-      <button id="save-todos" class="btn btn-primary">Save</button>
-      <button id="clear-completed-todos" class="btn btn-danger">Clear</button>
+      <div class="todos-operations__item">
+        <button id="save-todos" class="btn btn-primary">Save</button>
+        <button id="clear-completed-todos" class="btn btn-danger">Clear</button>
+      </div>
     </div>
   </div>
 </body>

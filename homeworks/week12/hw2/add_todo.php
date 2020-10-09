@@ -1,6 +1,6 @@
 <?php
   require_once('conn.php');
-  header('Content-type:application/json;charset=utf-8');
+  header('Content-type: application/json; charset=utf-8');
   header('Access-Control-Allow-Origin: *');
 
   $todo = $_POST['todo'];
@@ -15,8 +15,7 @@
     die();
   }
 
-  $sql = "INSERT INTO `Christopher_todos`(`todo`) VALUES (?)";
-  $stmt = $conn->prepare($sql);
+  $stmt = $conn->prepare("INSERT INTO `Christopher_todolist`(`todo`) VALUES (?)");
   $stmt->bind_param('s', $todo);
   $result = $stmt->execute();
 

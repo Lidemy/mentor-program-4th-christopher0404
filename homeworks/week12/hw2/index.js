@@ -5,15 +5,15 @@ const searchParams = new URLSearchParams(window.location.search);
 const paramId = searchParams.get('id');
 
 let todoId = 1;
-// eslint-disable-next-line no-unused-vars
 let todoCount = 0;
-let uncompletedTodoCount = 0;
+let completedTodoCount = 0;
+let todosData = [];
 
 const todoTemplate = `
   <li class="todo">
     <div class="todo__item">
       <input type="checkbox" id="todo-{{ id }}" class="todo__checkbox border-primary">
-      <label for="todo-{{ id }}" class="todo__name">{{ content }}</label>
+      <input class="todo__name" value="{{ content }}" maxlength="32"></input>
     </div>
     <button class="todo__delete btn">&times;</button>
   </li>
@@ -29,34 +29,37 @@ function escapeHTML(unsafe) {
 }
 
 function updateCounter() {
-  $('#uncompleted-todos').text(uncompletedTodoCount);
+  $('#completed-todos').text(completedTodoCount);
+  $('#all-todos').text(todoCount);
 }
 
-function restoreTodos(todos) {
-  if (todos.length === 0) return;
-  todoId = Number(todos[todos.length - 1].id) + 1;
+function render() {
+  todoCount = todosData.length;
+  completedTodoCount = todosData.filter(todo => todo.isCompleted).length;
+  updateCounter();
+  $('.todos-list').empty();
 
-  todos.forEach((todo) => {
+  if (todosData.length === 0) return;
+  todoId = Number(todosData[todosData.length - 1].id) + 1;
+
+  todosData.forEach((todo) => {
     const template = todoTemplate
       .replace(/{{ id }}/g, todo.id)
       .replace(/{{ content }}/g, escapeHTML(todo.content));
 
-    $('.todo-list').append(template);
+    $('.todos-list').append(template);
 
     if (todo.isCompleted) {
       $(`#todo-${todo.id}`).prop('checked', true);
       $(`#todo-${todo.id}`).parents('.todo').addClass('todo--completed');
-    } else {
-      uncompletedTodoCount += 1;
     }
-    updateCounter();
   });
 }
 
 if (paramId) {
   $.getJSON(`${baseUrl}get_todo.php?id=${paramId}`, (data) => {
-    const todos = JSON.parse(data.data.todo);
-    restoreTodos(todos);
+    todosData = JSON.parse(data.data.todo);
+    render();
   });
 }
 
@@ -64,17 +67,14 @@ function addTodo() {
   const inputValue = $('.form__input').val();
   if (inputValue.trim().length === 0) return;
 
-  const template = todoTemplate
-    .replace(/{{ id }}/g, todoId)
-    .replace(/{{ content }}/g, escapeHTML(inputValue));
+  todosData.push({
+    id: todoId,
+    content: inputValue,
+    isCompleted: false,
+  });
 
-  $('.todo-list').append(template);
+  render();
   $('.form__input').val('');
-
-  todoId += 1;
-  todoCount += 1;
-  uncompletedTodoCount += 1;
-  updateCounter();
 }
 
 $('.form').submit((e) => {
@@ -84,37 +84,29 @@ $('.form').submit((e) => {
 
 $('.form__submit').click(addTodo);
 
-$('.todo-list').on('click', '.todo__delete', (e) => {
-  const target = $(e.target);
-  const isChecked = target.parent().find('.todo__checkbox').is(':checked');
-
-  if (!isChecked) {
-    uncompletedTodoCount -= 1;
-  }
-
-  updateCounter();
-  todoCount -= 1;
-  target.parent().remove();
+$('.todos-list').on('click', '.todo__delete', (e) => {
+  const deleteId = $(e.target).parent().find('.todo__checkbox').attr('id')
+    .replace('todo-', '');
+  todosData = todosData.filter(todo => todo.id !== Number(deleteId));
+  render();
 });
 
-$('.todo-list').on('change', '.todo__checkbox', (e) => {
+$('.todos-list').on('change', '.todo__checkbox', (e) => {
   const target = $(e.target);
   const isChecked = target.is(':checked');
+  const updateId = target.attr('id').replace('todo-', '');
 
-  if (isChecked) {
-    target.parents('.todo').addClass('todo--completed');
-    uncompletedTodoCount -= 1;
-  } else {
-    uncompletedTodoCount += 1;
-    target.parents('.todo').removeClass('todo--completed');
+  for (let i = 0; i < todosData.length; i += 1) {
+    if (todosData[i].id === Number(updateId)) {
+      todosData[i].isCompleted = isChecked;
+    }
   }
-
-  updateCounter();
+  render();
 });
 
 $('#clear-completed-todos').click(() => {
-  todoCount -= $('.todo--completed').length;
-  $('.todo--completed').remove();
+  todosData = todosData.filter(todo => !todo.isCompleted);
+  render();
 });
 
 $('#select-todos').on('change', (e) => {
@@ -134,20 +126,18 @@ $('#select-todos').on('change', (e) => {
   }
 });
 
+$('.todos-list').on('blur', '.todo__name', (e) => {
+  const target = $(e.target);
+  const todoCheckboxId = target.siblings().attr('id').replace('todo-', '');
+
+  for (let i = 0; i < todosData.length; i += 1) {
+    if (todosData[i].id === Number(todoCheckboxId)) {
+      todosData[i].content = target.val();
+    }
+  }
+});
+
 $('#save-todos').click(() => {
-  const todosData = [];
-
-  $('.todo').each((i, el) => {
-    const checkbox = $(el).find('.todo__checkbox');
-    const label = $(el).find('.todo__name');
-
-    todosData.push({
-      id: Number(checkbox.attr('id').replace('todo-', '')),
-      content: label.text(),
-      isCompleted: $(el).hasClass('todo--completed'),
-    });
-  });
-
   const data = JSON.stringify(todosData);
 
   $.ajax({

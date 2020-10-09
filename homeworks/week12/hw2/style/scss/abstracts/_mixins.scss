@@ -1,9 +1,9 @@
 @mixin responsive($breakpoint) {
-  @if $breakpoint == tablet {
+  @if ($breakpoint == 'tablet') {
     @media (max-width: 64em) {  // 1024px
       @content;
     }
-  } @else if $breakpoint == phone {
+  } @else if ($breakpoint == 'phone') {
     @media (max-width: 32em) {  // 512px
       @content;
     }
@@ -15,4 +15,10 @@
   justify-content: $justify;
   align-items: $align;
   flex-direction: $direction;
+}
+
+@mixin resetAppearance {
+  appearance: none;
+  background: none;
+  border: none;
 }

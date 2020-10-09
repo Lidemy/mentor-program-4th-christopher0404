@@ -21,6 +21,10 @@ button {
   cursor: pointer;
 }
 
+input {
+  background-clip: padding-box;
+}
+
 img, svg {
   display: block;
   max-width: 100%;
