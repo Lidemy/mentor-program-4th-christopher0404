@@ -1,0 +1,18 @@
+.body {
+  @include flex(null, null, column);
+  background-color: $body-bg;
+  color: $primary-dark;
+}
+
+.main {
+  margin-bottom: 5rem;
+}
+
+.footer {
+  padding: 2.5rem;
+  margin-top: auto;
+
+  &__copyright {
+    text-align: center;
+  }
+}
