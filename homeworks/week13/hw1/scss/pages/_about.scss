@@ -1,0 +1,47 @@
+.profile {
+  @include flex(null, center, column);
+  text-align: center;
+
+  &__avatar {
+    max-width: 20rem;
+    border-radius: 64rem;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+
+  &__name {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  &__bio {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  &__social {
+    @include flex(center, center);
+    column-gap: 1rem;
+  }
+
+  &__icon {
+    svg {
+      width: 2rem;
+      height: auto;
+    }
+
+    svg,
+    .pf-rect {
+      fill: currentColor;
+
+      &:focus,
+      &:hover {
+        fill: $primary;
+      }
+    }
+
+    .pf-path {
+      fill: $body-bg;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.post {
+  @include flex(null, null, column);
+
+  &__title,
+  &__content {
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__title {
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  &__content {
+    resize: none;
+    appearance: none;
+    background: none;
+    margin-bottom: 2.5rem;
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    align-self: flex-end;
+  }
+}

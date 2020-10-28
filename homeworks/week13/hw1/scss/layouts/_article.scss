@@ -1,0 +1,53 @@
+.article {
+  @include flex(null, flex-start, column);
+  position: relative;
+  margin-bottom: 2.5rem;
+
+  &__title {
+    margin-bottom: .5rem;
+    font-size: 2rem;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &__time {
+    margin-bottom: .5rem;
+    color: $primary-light;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__content {
+    font-size: 1.25rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    @include responsive(phone) {
+      font-size: 1rem;
+    }
+  }
+
+  &__operation {
+    position: absolute;
+    top: .25rem;
+    right: 0;
+    display: flex;
+
+    .icon {
+      padding: .25rem;
+
+      &:focus,
+      &:hover {
+        color: $primary;
+      }
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+}
