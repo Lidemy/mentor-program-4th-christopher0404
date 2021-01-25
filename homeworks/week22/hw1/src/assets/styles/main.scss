@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap');
+@import '../../node_modules/nord/src/sass/nord.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: currentColor;
+  font-family: inherit;
+}
+
+::selection {
+  background-color: rgba($nord6, 0.125);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100vh;
+  min-height: -webkit-fill-available;
+  background-color: $nord0;
+  color: $nord6;
+  font-family: 'Maven Pro', -apple-system, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  appearance: none;
+  background: none;
+  cursor: pointer;
+}
+
+input {
+  appearance: none;
+  background: none;
+  background-clip: padding-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.25;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+p {
+  line-height: 1.5;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+time {
+  display: inline-block;
+}
+
+#root {
+  height: 100%;
+}
